@@ -7,10 +7,27 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
         
         <style>
+            .split{
+
+                height : 100% ; 
+                width : 50% ; 
+                position : fixed ; 
+                z-index : 1 ; 
+                top: 0 ; 
+                overflow-x : hidden ; 
+                padding-top : 20px ; 
+            }
+            .left{
+                left : 50% ; 
+            }
+            .right{
+                right : 50%; 
+            }
+         
 body{
 	height: 100vh;
 	background: #03dfff;
-	background: linear-gradient(139deg,#c7be47cb 0%,#f7591bb6 90%);
+	background: linear-gradient(139deg,#7ae0ffcb 0%,#e95555b6 90%);
     padding : 30PX ;
 }
 div {
@@ -41,7 +58,7 @@ button {
     </head>
 <body>
 <section>
-  <div class="add">
+  <div class="split left">
 <form action=>
             <h2>name :</h2>
             <input type="text"  id="num-one" placeholder="first">
@@ -51,7 +68,9 @@ button {
         </form> 
   <br>  <button  onclick="myFunction2()" >add to </button>
 </div>
+<div class="split right">
         <ul id="add-sum"></ul>
+    </div>
 </section>
 
 <script>
@@ -63,7 +82,7 @@ button {
     const  delBtn =document.createElement('button') ; 
     delBtn.innerHTML = '<i class="fa fa-trash"></i>';
 if((numOne!='') && (numTwo!='')){
-const addSum= numOne + " : " +numTwo + " "  ; 
+const addSum= numOne + " : " +numTwo + "  "  ; 
 
 const   node = document.createElement("OL");
 
