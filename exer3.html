@@ -1,33 +1,84 @@
+  
 <!DOCTYPE html>
 <html>
-    <head>     <link rel="stylesheet" href="/css/all.min.css">
+    <head>
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        
+        <style>
+body{
+	height: 100vh;
+	background: #03dfff;
+	background: linear-gradient(139deg,#c7be47cb 0%,#f7591bb6 90%);
+    padding : 30PX ;
+}
+div {
+padding: 20;}
+ul ol {
+  position: relative;
+  padding: 5px 8px 12px 10px;
+  font-size: 15px;
+  transition: 2 s;
+}
+h2{
+ color: rgb(82, 5, 50) ;
+}
+button {
+	margin: 0 10px;
+	background: #222;
+	color: #fff;
+	font-size: 15px;
+	text-transform: uppercase;
+	padding: 10px;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+        </style>
     </head>
 <body>
-<form action="">
-            <p>name :</p>
-            <input type="text"  id="num-two">
-            <p>content :</p>
-            <input type="text" id="num-one">
-        </form>
+<section>
+  <div class="add">
+<form action=>
+            <h2>name :</h2>
+            <input type="text"  id="num-one" placeholder="first">
+            <h2>content :</h2>
+            <input type="text" id="num-two" placeholder="second">
+
+        </form> 
+  <br>  <button  onclick="myFunction2()" >add to </button>
+</div>
         <ul id="add-sum"></ul>
-        <i class="fa fa-trash" aria-hidden="true"></i>
-
-
-<button onclick="myFunction2()">Try it</button>
+</section>
 
 <script>
+
     function myFunction2(){
-var numOne = document.getElementById("num-one").value;
-var numTwo = document.getElementById("num-two").value;
- var  addSum= numOne +" : " +numTwo + " " ; 
-  var node = document.createElement("OL");
-  var textnode = document.createTextNode(addSum);
+
+    const  numOne = document.getElementById("num-one").value;
+    const  numTwo = document.getElementById("num-two").value;
+    const  delBtn =document.createElement('button') ; 
+    delBtn.innerHTML = '<i class="fa fa-trash"></i>';
+if((numOne!='') && (numTwo!='')){
+const addSum= numOne + " : " +numTwo + " "  ; 
+
+const   node = document.createElement("OL");
+
+const  textnode = document.createTextNode(addSum);
   node.appendChild(textnode);
+  node.appendChild(delBtn); 
   document.getElementById("add-sum").appendChild(node);
 }
-document
-.querySelector("UL")
-.addEventListener("click",(e)=>e.target.parentNode.removeChild(e.target)); 
+delBtn.addEventListener('click',function(){
+const parent =this.parentNode ; 
+parent.remove() ; }
 
+)
+document.getElementById("num-one").value="";
+document.getElementById("num-two").value=""; 
+}
 </script>
 </body>
